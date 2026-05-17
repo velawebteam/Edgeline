@@ -66,7 +66,6 @@ export default function Home() {
                 <div className="flex justify-between items-baseline">
                   <div>
                     <h3 className="text-2xl editorial-title">{project.title}</h3>
-                    <p className="editorial-sub opacity-60 mt-1">{project.location}</p>
                   </div>
                   <span className="editorial-sub opacity-30">{project.year}</span>
                 </div>

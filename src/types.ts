@@ -4,6 +4,8 @@ export interface Project {
   location: string;
   year: number;
   description: string;
+  fullDescription?: string;
+  technicalSpecs?: string;
   coverImage: string;
   images: string[];
   featured?: boolean;
