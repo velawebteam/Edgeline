@@ -4,9 +4,9 @@ import { motion } from 'motion/react';
 export default function Equipa() {
   return (
     <div className="px-6 pt-12 pb-40 md:px-12 md:pt-20 max-w-7xl mx-auto">
-      <header className="mb-16 md:mb-24">
+      <header className="mb-10 md:mb-16">
         <p className="editorial-sub mb-4">Pessoas</p>
-        <h2 className="text-4xl md:text-7xl editorial-title">Equipa</h2>
+        <h2 className="text-3xl md:text-6xl editorial-title">Equipa</h2>
       </header>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-24 gap-y-16 md:gap-y-32">

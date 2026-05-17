@@ -3,13 +3,17 @@ import { PROJECTS } from '../constants';
 export default function Edgeline() {
   return (
     <div className="px-6 pt-12 pb-40 md:px-12 md:pt-20 max-w-7xl mx-auto space-y-32">
+      <header className="mb-10 md:mb-16">
+        <p className="editorial-sub mb-4">Sobre</p>
+        <h2 className="text-3xl md:text-6xl editorial-title">Atelier</h2>
+      </header>
+
       <section className="max-w-3xl">
-        <p className="editorial-sub mb-6">Atelier</p>
         <div className="mb-12">
           <img 
             src="https://lh3.googleusercontent.com/d/1XpAXBiHLqE6aRFuy9o7vr_WA7vmDTvBW" 
             alt="Edgeline Logo" 
-            className="h-20 md:h-32 w-auto object-contain mb-4"
+            className="h-20 md:h-24 w-auto object-contain mb-4"
             referrerPolicy="no-referrer"
           />
           <h2 className="text-xl md:text-2xl editorial-title opacity-40">Arquitetos Associados</h2>

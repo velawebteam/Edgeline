@@ -1,9 +1,9 @@
 export default function Contactos() {
   return (
     <div className="px-6 pt-12 pb-40 md:px-12 md:pt-20 min-h-[80vh] flex flex-col justify-center max-w-5xl">
-      <header className="mb-20">
+      <header className="mb-10 md:mb-16">
         <p className="editorial-sub mb-4 lowercase">diálogo</p>
-        <h2 className="text-5xl md:text-7xl editorial-title lowercase">contactos</h2>
+        <h2 className="text-3xl md:text-6xl editorial-title lowercase">contactos</h2>
         <p className="mt-8 text-xl opacity-60 lowercase">edgeline – arquitectos associados, lda.</p>
       </header>
       
