@@ -12,7 +12,6 @@ export default function Edgeline() {
             className="h-20 w-auto object-contain mb-4"
             referrerPolicy="no-referrer"
           />
-          <h2 className="text-xl md:text-2xl editorial-title text-brand-black">Arquitetos Associados</h2>
         </div>
         <div className="md:col-span-8 space-y-8 text-xl md:text-2xl font-normal text-brand-black/80 whitespace-relaxed">
           <p>
@@ -36,9 +35,14 @@ export default function Edgeline() {
           {PROJECTS.map((project) => (
             <div key={project.id} className="py-6 flex flex-col md:grid md:grid-cols-4 gap-4 items-baseline">
               <span className="text-2xl editorial-title md:col-span-2">{project.title}</span>
-              <span className="editorial-sub text-base md:text-lg md:col-span-2 md:text-right">
-                {project.location} — {project.year}
-              </span>
+              <div className="md:col-span-2 md:text-right flex flex-col">
+                <span className="text-base md:text-lg text-[#9D9D9D] font-normal tracking-tight">
+                  {project.location}
+                </span>
+                <span className="text-base md:text-lg text-[#9D9D9D] font-normal tracking-tight">
+                  {project.year}
+                </span>
+              </div>
             </div>
           ))}
         </div>

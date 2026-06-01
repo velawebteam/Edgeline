@@ -40,9 +40,9 @@ export default function Navbar() {
           opacity: isHeaderRevealed ? 1 : 0
         }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 px-6 py-5 md:px-12 md:py-8 flex justify-between items-center bg-brand-offwhite/90 backdrop-blur-md border-b border-brand-black/5 ${!isHeaderRevealed ? 'pointer-events-none' : ''}`}
+        className={`fixed top-0 left-0 right-0 z-[60] px-6 py-5 md:px-12 md:py-8 flex justify-between items-center bg-brand-offwhite border-b border-brand-black/5 ${!isHeaderRevealed ? 'pointer-events-none' : ''}`}
       >
-        <Link to="/" className="flex items-center z-50">
+        <Link to="/" className="flex items-center z-[70]">
           <img 
             src="https://lh3.googleusercontent.com/d/1XpAXBiHLqE6aRFuy9o7vr_WA7vmDTvBW" 
             alt="Edgeline Logo" 
@@ -52,12 +52,12 @@ export default function Navbar() {
         </Link>
         
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-12">
+        <div className="hidden lg:flex space-x-12">
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.path}
               to={item.path}
-              className={`font-sans tracking-[0.1em] text-[14px] md:text-[14px] font-normal text-black transition-opacity duration-300 ${
+              className={`font-sans tracking-[0.1em] text-[14px] font-normal text-black transition-opacity duration-300 ${
                 location.pathname === item.path ? 'opacity-100' : 'opacity-100'
               } hover:opacity-70`}
             >
@@ -66,48 +66,58 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Mobile Toggle */}
+        {/* Menu Toggle (Mobile & Tablet) */}
         <button 
-          className="md:hidden z-50 p-2 -mr-2 text-black flex items-center justify-center"
+          className="lg:hidden z-[70] p-2 -mr-2 text-black flex items-center justify-center relative"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-
-        {/* Mobile Menu Overlay */}
-        <AnimatePresence>
-          {isOpen && (
+          <AnimatePresence mode="wait">
             <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="fixed inset-0 bg-brand-offwhite z-40 flex flex-col justify-center px-6 pt-20"
+              key={isOpen ? 'close' : 'menu'}
+              initial={{ opacity: 0, rotate: -90 }}
+              animate={{ opacity: 1, rotate: 0 }}
+              exit={{ opacity: 0, rotate: 90 }}
+              transition={{ duration: 0.2 }}
             >
-              <div className="flex flex-col space-y-8">
-                {NAV_ITEMS.map((item, index) => (
-                  <motion.div
-                    key={item.path}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1 + index * 0.05 }}
-                  >
-                    <Link
-                      to={item.path}
-                      className={`text-3xl md:text-4xl editorial-title font-normal ${
-                        location.pathname === item.path ? 'text-black opacity-100' : 'text-black opacity-100'
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
+              {isOpen ? <X size={28} strokeWidth={1.5} /> : <Menu size={28} strokeWidth={1.5} />}
             </motion.div>
-          )}
-        </AnimatePresence>
+          </AnimatePresence>
+        </button>
       </motion.nav>
+
+      {/* Mobile & Tablet Menu Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 bg-brand-offwhite z-[55] flex flex-col pt-32 px-6 lg:hidden overflow-y-auto"
+          >
+            <div className="flex flex-col space-y-10 max-w-lg mx-auto w-full">
+              {NAV_ITEMS.map((item, index) => (
+                <motion.div
+                  key={item.path}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + index * 0.05, duration: 0.5 }}
+                >
+                  <Link
+                    to={item.path}
+                    className={`text-4xl md:text-5xl editorial-title block transition-colors ${
+                      location.pathname === item.path ? 'text-black opacity-100' : 'text-black/60 hover:opacity-100'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

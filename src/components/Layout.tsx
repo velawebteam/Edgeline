@@ -11,10 +11,14 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   const location = useLocation();
   const { isHeaderRevealed, revealHeader } = useHeader();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [location.pathname]);
+    if (!isHomePage && !isHeaderRevealed) {
+      revealHeader();
+    }
+  }, [location.pathname, isHomePage, isHeaderRevealed, revealHeader]);
 
   // Global click to reveal header if not yet revealed
   const handleGlobalClick = () => {
@@ -23,15 +27,13 @@ export default function Layout({ children }: LayoutProps) {
     }
   };
 
-  const isHomePage = location.pathname === '/';
-
   return (
     <div 
       className={`min-h-screen flex flex-col bg-brand-offwhite ${!isHeaderRevealed ? 'cursor-pointer' : ''}`}
       onClick={handleGlobalClick}
     >
       <Navbar />
-      <main className={`flex-grow ${!isHomePage ? 'pt-[56px] md:pt-[104px]' : ''}`}>
+      <main className={`flex-grow ${!isHomePage ? 'pt-[73px] md:pt-[113px]' : ''}`}>
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}

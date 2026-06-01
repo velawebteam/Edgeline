@@ -4,7 +4,6 @@
 @theme {
   --font-sans: 'Neue Haas Grotesk Display Pro', 'Neue Haas Grotesk', "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-serif: 'Neue Haas Grotesk Display Pro', 'Neue Haas Grotesk', "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-akzidenz: 'Akzidenz-Grotesk', 'Akzidenz Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   
   --color-brand-offwhite: #F9F9F8;
   --color-brand-black: #000000;
@@ -24,7 +23,7 @@
     @apply bg-brand-offwhite text-brand-black font-sans antialiased selection:bg-brand-black selection:text-white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-weight: 400;
+    font-weight: 400; /* Roman */
     letter-spacing: -0.01em;
   }
 }
@@ -32,6 +31,7 @@
 @layer utilities {
   .editorial-title {
     @apply font-sans font-normal tracking-tighter leading-[1.1];
+    font-weight: 400; /* Roman */
   }
   
   .editorial-sub {
@@ -53,9 +53,5 @@
 
   .markdown-specs p {
     margin: 0;
-  }
-
-  .project-magoito, .project-magoito * {
-    font-family: var(--font-akzidenz) !important;
   }
 }

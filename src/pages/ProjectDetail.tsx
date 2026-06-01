@@ -20,13 +20,8 @@ export default function ProjectDetail() {
   };
 
   return (
-    <div className={`pt-2 pb-20 md:pt-4 min-h-screen bg-white ${project.id === 'casa-magoito' ? 'project-magoito' : ''}`}>
+    <div className="pt-6 pb-20 md:pt-12 min-h-screen bg-white">
       <div className="px-6 md:px-12 w-full max-w-[1800px] mx-auto">
-        {/* Mobile Title */}
-        <h2 className="lg:hidden text-3xl editorial-title mb-6 leading-[0.9] tracking-tighter">
-          {project.title}
-        </h2>
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start md:pt-6">
           
           {/* Column: Carousel (First on mobile, Second on desktop) */}
@@ -88,17 +83,17 @@ export default function ProjectDetail() {
 
           {/* Column: Info (Second on mobile, First on desktop) */}
           <div className="flex flex-col order-2 lg:order-1">
-            {/* Desktop Title */}
-            <h2 className="hidden lg:block text-3xl md:text-6xl editorial-title mb-6 leading-[0.9] tracking-tighter">
+            <h2 className="text-3xl md:text-6xl editorial-title mb-6 mt-4 lg:mt-0 leading-[0.9] tracking-tighter">
               {project.title}
             </h2>
             
             <div className="space-y-6 max-w-xl">
-              <div className="space-y-1">
-                <p className="editorial-sub text-base md:text-lg">{project.location} — {project.year}</p>
+              <div className="space-y-2">
+                <p className="text-xl md:text-2xl text-[#9D9D9D] font-normal tracking-tight">{project.location}</p>
+                <p className="text-xl md:text-2xl text-[#9D9D9D] font-normal tracking-tight">{project.year}</p>
               </div>
 
-              <p className="text-lg md:text-xl font-normal text-brand-black/90 leading-relaxed whitespace-pre-line">
+              <p className="text-lg md:text-xl font-normal text-[#9D9D9D] leading-relaxed whitespace-pre-line tracking-tight">
                 {project.fullDescription || project.description}
               </p>
               
