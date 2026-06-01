@@ -3,12 +3,12 @@ import { Project, TeamMember } from './types';
 export const PROJECTS: Project[] = [
   {
     id: 'casa-magoito',
-    title: 'Casa do Magoito',
+    title: 'Casa no Magoito',
     location: 'Sintra, Portugal',
-    year: 2024,
+    year: '2014-2024',
     description: 'Uma habitação unifamiliar que se estende sobre a falésia do Magoito. O projeto explora a horizontalidade e a relação tátil com a paisagem através de uma sequência de pátios e planos de betão que protegem e enquadram o Atlântico.',
     fullDescription: 'A casa está implantada no extremo sul do terreno, procurando o horizonte aberto sobre o vale e a Praia do Magoito. Dessa forma, o restante espaço permanece livre, entregue ao desenho da paisagem e à continuidade natural do lugar.\n\nSobre um embasamento comum erguem-se quatro volumes dispostos longitudinalmente no sentido nascente/poente. Com coberturas de duas águas e dimensões distintas, moldadas pelas necessidades do programa, evocam a imagem de quatro pequenas casas que, ao aproximarem-se e fundirem-se entre si, constroem uma só entidade: a Casa.',
-    technicalSpecs: 'Arquitectura: Edgeline Arquitectos Associados | Equipa de projecto: Alexandre Berardo, Gonçalo Castro, Rita Serra Fernandes, Vanessa Pícaro | Área de construção: 190 m2 | Localização: Magoito – Sintra | Fotografia: Edgeline',
+    technicalSpecs: '**Arquitectura:** Edgeline Arquitectos Associados | **Equipa de projecto:** Alexandre Berardo, Gonçalo Castro, Rita Serra Fernandes, Vanessa Pícaro | **Área de construção:** 190 m2 | **Localização:** Magoito – Sintra | **Fotografia:** Edgeline',
     coverImage: 'https://lh3.googleusercontent.com/d/1pqQF_ouWzYkKo-8oM6c7U5-W8odhs6wb',
     images: [
       'https://lh3.googleusercontent.com/d/1W1HKZKKU7K8q4614EI5A3vsFNrnlwLA8',
@@ -110,14 +110,14 @@ export const TEAM: TeamMember[] = [
   {
     id: 'alexandre-berardo',
     name: 'Alexandre Berardo',
-    role: 'Sócio Fundador',
+    role: 'sócio fundador',
     bio: 'Arquiteto pela FAUP, com especialização em reabilitação urbana. Foca o seu trabalho na relação entre o material e a memória.',
     photo: 'https://lh3.googleusercontent.com/d/1rHgHTKyBWyb8Oq89clKTSqbgpqxJs8J5',
   },
   {
     id: 'doriana-santos',
     name: 'Doriana Santos',
-    role: 'Sócia Associada',
+    role: 'sócia associada',
     bio: 'Mestrada em Arquitetura Sustentável. Coordena a área de investigação tecnológica do atelier, integrando novos materiais na construção tradicional.',
     photo: 'https://lh3.googleusercontent.com/d/1TmtR9qrGtvvBMsrSSM_p3u4qkLB1xvJi',
   },

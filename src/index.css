@@ -2,13 +2,13 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Helvetica Neue", Helvetica, Arial, "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Helvetica Neue", Helvetica, Arial, "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-haas: 'Neue Haas Grotesk Display Pro', 'Neue Haas Grotesk', sans-serif;
+  --font-sans: 'Neue Haas Grotesk Display Pro', 'Neue Haas Grotesk', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-serif: 'Neue Haas Grotesk Display Pro', 'Neue Haas Grotesk', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-akzidenz: 'Akzidenz-Grotesk', 'Akzidenz Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   
   --color-brand-offwhite: #F9F9F8;
-  --color-brand-black: #141414;
-  --color-brand-gray: #717171;
+  --color-brand-black: #000000;
+  --color-brand-gray: #333333;
 }
 
 @layer base {
@@ -27,19 +27,15 @@
     font-weight: 400;
     letter-spacing: -0.01em;
   }
-  
-  .project-magoito, .project-magoito * {
-    font-family: var(--font-haas) !important;
-  }
 }
 
 @layer utilities {
   .editorial-title {
-    @apply font-sans font-normal tracking-tighter leading-[1.1] uppercase;
+    @apply font-sans font-normal tracking-tighter leading-[1.1];
   }
   
   .editorial-sub {
-    @apply font-sans uppercase tracking-[0.2em] text-[10px] font-medium text-brand-gray;
+    @apply font-sans tracking-[0.2em] text-[11px] font-normal text-brand-black;
   }
   
   .whitespace-relaxed {
@@ -53,5 +49,13 @@
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  .markdown-specs p {
+    margin: 0;
+  }
+
+  .project-magoito, .project-magoito * {
+    font-family: var(--font-akzidenz) !important;
   }
 }

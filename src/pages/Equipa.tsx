@@ -3,11 +3,7 @@ import { motion } from 'motion/react';
 
 export default function Equipa() {
   return (
-    <div className="px-6 pt-12 pb-40 md:px-12 md:pt-20 max-w-7xl mx-auto">
-      <header className="mb-10 md:mb-16">
-        <p className="editorial-sub mb-4">Pessoas</p>
-        <h2 className="text-3xl md:text-6xl editorial-title">Equipa</h2>
-      </header>
+    <div className="px-6 pt-6 pb-40 md:px-12 md:pt-10 max-w-7xl mx-auto">
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-24 gap-y-16 md:gap-y-32">
         {TEAM.map((member) => (
@@ -24,7 +20,7 @@ export default function Equipa() {
                 <span className="editorial-sub">{member.role}</span>
                 <h3 className="text-3xl editorial-title mt-1">{member.name}</h3>
               </div>
-              <p className="text-brand-gray leading-relaxed max-w-md">
+              <p className="text-brand-black leading-relaxed max-w-md">
                 {member.bio}
               </p>
             </div>

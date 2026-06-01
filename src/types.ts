@@ -2,7 +2,7 @@ export interface Project {
   id: string;
   title: string;
   location: string;
-  year: number;
+  year: number | string;
   description: string;
   fullDescription?: string;
   technicalSpecs?: string;

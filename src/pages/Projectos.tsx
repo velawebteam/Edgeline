@@ -4,11 +4,7 @@ import { motion } from 'motion/react';
 
 export default function Projectos() {
   return (
-    <div className="px-6 pt-12 pb-40 md:px-12 md:pt-20">
-      <header className="mb-10 md:mb-16">
-        <p className="editorial-sub mb-4">Arquivo</p>
-        <h2 className="text-3xl md:text-6xl editorial-title">Obras e Projectos</h2>
-      </header>
+    <div className="px-6 pt-6 pb-40 md:px-12 md:pt-10">
       
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 md:gap-x-12 md:gap-y-20">
         {PROJECTS.map((project, index) => (
@@ -31,7 +27,7 @@ export default function Projectos() {
                 <div>
                   <h3 className="text-2xl editorial-title">{project.title}</h3>
                 </div>
-                <span className="editorial-sub opacity-30">{project.year}</span>
+                <span className="editorial-sub text-base">{project.year}</span>
               </div>
             </Link>
           </motion.div>

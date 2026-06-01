@@ -2,6 +2,7 @@ import { ReactNode, useEffect } from 'react';
 import Navbar from './Navbar';
 import { motion, AnimatePresence } from 'motion/react';
 import { useLocation } from 'react-router-dom';
+import { useHeader } from '../context/HeaderContext';
 
 interface LayoutProps {
   children: ReactNode;
@@ -9,15 +10,28 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   const location = useLocation();
+  const { isHeaderRevealed, revealHeader } = useHeader();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
+  // Global click to reveal header if not yet revealed
+  const handleGlobalClick = () => {
+    if (!isHeaderRevealed) {
+      revealHeader();
+    }
+  };
+
+  const isHomePage = location.pathname === '/';
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div 
+      className={`min-h-screen flex flex-col bg-brand-offwhite ${!isHeaderRevealed ? 'cursor-pointer' : ''}`}
+      onClick={handleGlobalClick}
+    >
       <Navbar />
-      <main className="flex-grow">
+      <main className={`flex-grow ${!isHomePage ? 'pt-[56px] md:pt-[104px]' : ''}`}>
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
@@ -31,10 +45,18 @@ export default function Layout({ children }: LayoutProps) {
         </AnimatePresence>
       </main>
       
-      {/* Footer is implicitly part of the Contact page in this design, but we could add a subtle signature */}
-      <footer className="px-6 py-12 md:px-12 text-center">
-        <p className="editorial-sub opacity-30">© {new Date().getFullYear()} Edgeline — Arquitetos Associados</p>
-      </footer>
+      <AnimatePresence>
+        {isHeaderRevealed && (
+          <motion.footer 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            className="px-6 py-12 md:px-12 text-center"
+          >
+            <p className="editorial-sub opacity-30">© {new Date().getFullYear()} edgeline — arquitectos associados</p>
+          </motion.footer>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
