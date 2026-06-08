@@ -93,7 +93,7 @@ export default function ProjectDetail() {
                 <p className="text-xl md:text-2xl text-[#9D9D9D] font-normal tracking-tight">{project.year}</p>
               </div>
 
-              <p className="text-lg md:text-xl font-normal text-[#9D9D9D] leading-relaxed whitespace-pre-line tracking-tight">
+              <p className="text-lg md:text-xl font-normal text-brand-black leading-relaxed whitespace-pre-line tracking-tight">
                 {project.fullDescription || project.description}
               </p>
               

@@ -16,5 +16,6 @@ export interface TeamMember {
   name: string;
   role: string;
   bio: string;
+  longBio?: string;
   photo: string;
 }
